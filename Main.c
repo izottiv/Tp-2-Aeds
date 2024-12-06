@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "ListaSonda/TAD_ListaSonda.h"
+#include "CentralDeComando/TAD_CentraDeComando.h"
 
 int main(){
+    
+    Inicializador();
+
     return 0;
 }
