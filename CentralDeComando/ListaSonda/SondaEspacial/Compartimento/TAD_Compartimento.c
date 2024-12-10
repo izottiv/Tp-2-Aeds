@@ -3,7 +3,7 @@
 #include <math.h>
 #include "TAD_Compartimento.h"
 
- // Inicializa um compartimento
+// Inicializa um compartimento
 void InicializadorCompartimento(GerenciadorCompartimento *Comp){
     Comp->PrimeiroRocha = (Compartimento*) malloc(sizeof(Compartimento));
     Comp->UltimoRocha = Comp->PrimeiroRocha;

@@ -15,8 +15,6 @@ int GetPeso(RochaMineral* Rocha);
 void SetValor(RochaMineral* Rocha, int valor);
 void SetPeso(RochaMineral* Rocha, int PESO);
 
-//Funções da Rocha Mineral
-
 //Seta os valores do struct
 void InicializaRochaMineral(RochaMineral* Rocha, int PESO, int valor);  
 

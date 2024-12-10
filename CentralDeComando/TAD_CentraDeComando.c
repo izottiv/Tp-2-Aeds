@@ -28,16 +28,43 @@ void Inicializador(){
         ListaDeRocha[i] =  RochaInserida;
     }
     printf("\n");
-
-    FuncaoE(&Espaconaves,&ListaDeRocha[0],count);   
+    
+    FuncaoE(&Espaconaves,ListaDeRocha,count);   
     //ImprimirListaSondas(&Espaconaves);
 }
 
-void FuncaoE(ListaSondas *ListaDeSondas,RochaMineral *ListaDeRochas,int count){
-    //int VetorDePossicoes[count];
-    //RochaMineral ListaDeRochasOrganizadas[count];    
-    for (int i = 0; i < count; i++){
-        printf("peso %d valor %d ",ListaDeRochas[i].Peso,ListaDeRochas[i].Valor);
+void FuncaoE(ListaSondas *ListaDeSondas,RochaMineral ListaDeRochas[],int count){
+
+    RochaMineral CombinacoesDeRochas[1][1];
+    gerarTodasCombinacoes(ListaDeRochas,count);
+
+}
+
+
+
+void gerarCombinacoes(RochaMineral Array[], int Tamanho, int QuantidadeElementos, int Possicao, RochaMineral data[], int i) {
+    if (Possicao == QuantidadeElementos) {
+        int PesoCombinacao = 0;
+        for (int j = 0; j < QuantidadeElementos; j++) {
+            PesoCombinacao += data[j].Peso; 
+        }
+        printf("Peso total da combinacao %d\n",PesoCombinacao);
+        return;
     }
-    
+
+    if (i >= Tamanho) {
+        return;
+    }
+
+    data[Possicao] = Array[i];
+    gerarCombinacoes(Array, Tamanho, QuantidadeElementos, Possicao + 1, data, i + 1);
+
+    gerarCombinacoes(Array, Tamanho, QuantidadeElementos, Possicao, data, i + 1);
+}
+
+void gerarTodasCombinacoes(RochaMineral arr[], int n) {
+    for (int r = 1; r <= n; r++) {
+        RochaMineral data[r]; 
+        gerarCombinacoes(arr, n, r, 0, data, 0);
+    }
 }
