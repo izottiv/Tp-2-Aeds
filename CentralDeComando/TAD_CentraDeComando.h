@@ -5,6 +5,8 @@
 
 void Inicializador();
 
+void FuncaoE(ListaSondas *ListaDeSonda,RochaMineral *ListaDeRochas,int count);
+
 
 
 #endif

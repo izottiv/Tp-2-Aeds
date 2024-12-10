@@ -28,6 +28,16 @@ void Inicializador(){
         ListaDeRocha[i] =  RochaInserida;
     }
     printf("\n");
+
+    FuncaoE(&Espaconaves,&ListaDeRocha[0],count);   
+    //ImprimirListaSondas(&Espaconaves);
+}
+
+void FuncaoE(ListaSondas *ListaDeSondas,RochaMineral *ListaDeRochas,int count){
+    //int VetorDePossicoes[count];
+    //RochaMineral ListaDeRochasOrganizadas[count];    
+    for (int i = 0; i < count; i++){
+        printf("peso %d valor %d ",ListaDeRochas[i].Peso,ListaDeRochas[i].Valor);
+    }
     
-    ImprimirListaSondas(&Espaconaves);
 }

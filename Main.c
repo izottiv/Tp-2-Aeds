@@ -5,8 +5,6 @@
 #include "CentralDeComando/TAD_CentraDeComando.h"
 
 int main(){
-    
     Inicializador();
-
     return 0;
 }
