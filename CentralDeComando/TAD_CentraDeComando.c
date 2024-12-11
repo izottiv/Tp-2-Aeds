@@ -40,16 +40,17 @@ void FuncaoE(ListaSondas *ListaDeSondas,RochaMineral ListaDeRochas[],int count){
 
     while (Aux != NULL){    
         if (RochasRetiradas > 0){    
-            RecebeCombinacao(&Aux->sonda.CompartimentoSonda,&ListaDeRochas[count - 1],count);     
+            RecebeCombinacao(&Aux->sonda.CompartimentoSonda,&ListaDeRochas[count - 1],RochasRetiradas);     
             gerarTodasCombinacoes(ListaDeRochas,count,&ListaDeSondas->Primeiro->prox->sonda.CompartimentoSonda);
-            RetiraCombinacao(&Aux->sonda.CompartimentoSonda,&ListaDeRochas,count);
-            printf("Quantidade Rochas no array %d\n",QuantidadeCombinacao(ListaDeRochas,count));
-            RochasRetiradas -= QuantidadeRochasCompartimento(&Aux->sonda.CompartimentoSonda);
+            RetiraCombinacao(&Aux->sonda.CompartimentoSonda,&ListaDeRochas,RochasRetiradas);
+            RochasRetiradas = RochasRetiradas - QuantidadeRochasCompartimento(&Aux->sonda.CompartimentoSonda);
+            printf("Quantidade Rochas restantes no array %d\n",QuantidadeCombinacao(ListaDeRochas,RochasRetiradas));
         }
         else{
             printf("Sem Rocha pra colocar\n");
         }
-        Aux = Aux->prox;
+        //Aux = Aux->prox;
+        break;
     }
 }
 
@@ -71,6 +72,7 @@ void gerarCombinacoes(RochaMineral Array[], int Tamanho, int QuantidadeElementos
                 else if(PesoAtualCompartimento(CompartimentoTemporario) == PesoCombinacao(data,QuantidadeElementos)){// CASO OS PESOS DO COMPARTIMENTO E DA COMBINCAO SEJA IQUAIS OLHA A QUANTIDADE DE ROCHAS
                     printf("Teste Quantidade\n");
                     if (QuantidadeRochasCompartimento(CompartimentoTemporario) >= QuantidadeCombinacao(data,QuantidadeElementos)){// CASO A COMBINCAO TENHA MENOS ROCHAS DO QUE A DO COMPARTIMENTO
+                        printf("Teste quantidade de rochas iqual\n");
                         LimpaCompartimento(CompartimentoTemporario);
                         RecebeCombinacao(CompartimentoTemporario,data,QuantidadeElementos);
                     }
@@ -165,13 +167,43 @@ void ImprimeInformacoes(ListaSondas *comp,RochaMineral Array[],int tamanho){
     }
 }
 
-void RetiraCombinacao(GerenciadorCompartimento *Comp,RochaMineral *Array[],int *tamanho){
+void RetiraCombinacao(GerenciadorCompartimento *Comp,RochaMineral *Array[],int tamanho){
+    Compartimento *CompAux;
+    CompAux = Comp->PrimeiroRocha->Prox;
+    int TamanhoMax = tamanho;
+    while (CompAux != NULL){
+        for (int i = 0; i < TamanhoMax; i++){
+            if (CompAux->_RochaMineral.Peso == Array[i]->Peso && CompAux->_RochaMineral.Valor == Array[i]->Valor){
+                printf("achou iqual\n");
+                RetiraRocha(Array,i,TamanhoMax,Array[i]->Peso,Array[i]->Valor);
+                TamanhoMax --;
+                printf("batata\n");
+            }
+        }
 
-
+        CompAux = CompAux->Prox;
+    }
+    
 
 }
 
-void RetiraRocha(RochaMineral *Array[],int Possicao,int tamanho){
-
-
+void RetiraRocha(RochaMineral *Array[],int Possicao,int tamanho,int Peso,int Valor){
+    for (int i = 0; i < tamanho; i++){
+        printf("possicao de tamanho %d\n",tamanho);
+        if (Array[i]->Peso == Peso && Array[i]->Valor == Valor){
+            printf("possicao de i %d\n",i); 
+            if (i == tamanho - 1){
+                printf("cenoura\n");
+                break;
+            }
+            for (int k = 0; k < tamanho; k++){
+                printf("possicao de k %d\n",k);
+                printf("arroz\n");
+                if (k >= i){
+                    Array[i] = Array[i+1];
+                }
+            } 
+            break;    
+        }
+    }
 }
