@@ -70,9 +70,10 @@ void Inicializador(){
     ArrayDeRochas VetorDeRochas;
     CriarArrayDeRochas(&VetorDeRochas);
     int Peso,Valor;
+    printf("Digite o peso e o valor das rochas:\n");
     for (int i = 0; i < count; i++){
+        printf("%d - ",i);
         RochaMineral RochaInserida;
-        printf("Digite o peso e o valor da rocha: ");
         scanf("%d %d",&Peso,&Valor);
         InicializaRochaMineral(&RochaInserida,Peso,Valor);
         InsereRochaNoArray(&VetorDeRochas,RochaInserida);
@@ -90,10 +91,9 @@ void FuncaoE(ListaSondas *ListaDeSondas,ArrayDeRochas ListaDeRocha,int UltimaPos
     //Percore a lista de sondas procurando a melhor combinacao e quardando essa combincao 
     while (Aux != NULL){
         gerarTodasCombinacoes(ListaDeRocha.ArrayDeRochas,UltimaPosicao,&Aux->sonda.CompartimentoSonda);
-        RetiraCombinacao(&Aux->sonda.CompartimentoSonda,&ListaDeRocha,UltimaPosicao);        
+        RetiraCombinacao(&Aux->sonda.CompartimentoSonda,&ListaDeRocha);        
         Aux = Aux->prox;
     }
-    ImprimeArrayDeRochas(&ListaDeRocha);
 }
 
 void gerarCombinacoes(RochaMineral Array[], int Tamanho, int QuantidadeElementos, int Possicao, RochaMineral data[], int i,GerenciadorCompartimento *CompartimentoTemporario) {
@@ -190,18 +190,21 @@ void ImprimeInformacoes(ListaSondas *comp,RochaMineral Array[],int tamanho){
         while (CompAux != NULL){    
             for (int i = 0; i < QuantidadeCombinacao(Array,tamanho); i++){
                 if (CompAux->_RochaMineral.Peso == Array[i].Peso && CompAux->_RochaMineral.Valor == Array[i].Valor){
-                    printf(" %d,",i);       
+                    printf("%d",i);
+                    if (i != QuantidadeCombinacao(Array,tamanho-1)){
+                        printf(", ");
+                    }      
                 }  
             }
             CompAux = CompAux->Prox;    
         }
-        printf(" ]\n");
+        printf("]\n");
         i ++;
         Aux = Aux->prox;
     }
 }
 
-void RetiraCombinacao(GerenciadorCompartimento *Comp,ArrayDeRochas *ListaDeRocha,int tamanho){
+void RetiraCombinacao(GerenciadorCompartimento *Comp,ArrayDeRochas *ListaDeRocha){
     Compartimento *CompAux;
     CompAux = Comp->PrimeiroRocha->Prox;
     while (CompAux != NULL){

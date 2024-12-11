@@ -40,6 +40,6 @@ void RecebeCombinacao(GerenciadorCompartimento *Comp,RochaMineral Array[],int Qu
 
 void ImprimeInformacoes(ListaSondas *comp,RochaMineral Array[],int tamanho);
 
-void RetiraCombinacao(GerenciadorCompartimento *Comp,ArrayDeRochas *ListaDeRocha,int tamanho);
+void RetiraCombinacao(GerenciadorCompartimento *Comp,ArrayDeRochas *ListaDeRocha);
 
 #endif
