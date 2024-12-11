@@ -58,7 +58,6 @@ void InserirRocha(GerenciadorCompartimento *comp, RochaMineral *Rocha){
         comp->UltimoRocha->Prox = NULL;
     }
     else{
-        printf("Nao foi enserido\n");
     }
 }
 

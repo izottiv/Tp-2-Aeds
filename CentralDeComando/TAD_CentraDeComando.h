@@ -21,10 +21,10 @@ int QuantidadeCombinacao(RochaMineral Array[],int TamanhoArray);
 
 void RecebeCombinacao(GerenciadorCompartimento *Comp,RochaMineral Array[],int Quantidade);
 
-void ImprimeInformacoes(ListaSondas *comp);
+void ImprimeInformacoes(ListaSondas *comp,RochaMineral Array[],int tamanho);
 
-void RetiraCombinacao(GerenciadorCompartimento *Comp,RochaMineral *Array[],int tamanho);
+void RetiraCombinacao(GerenciadorCompartimento *Comp,RochaMineral *Array[],int *tamanho);
 
-void RetiraRocha(RochaMineral *Array[],int Possicao,int *tamanho);
+void RetiraRocha(RochaMineral *Array[],int Possicao,int tamanho);
 
 #endif
