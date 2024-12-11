@@ -27,5 +27,8 @@ int PesoAtualCompartimento(GerenciadorCompartimento *comp);
 // Insere uma rocha em um compartimento
 void InserirRocha(GerenciadorCompartimento *comp, RochaMineral *Rocha);
 
+void LimpaCompartimento(GerenciadorCompartimento *comp);
+
+int QuantidadeRochasCompartimento(GerenciadorCompartimento *comp);
 
 #endif

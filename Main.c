@@ -5,7 +5,7 @@
 #include "CentralDeComando/TAD_CentraDeComando.h"
 
 
-#include <stdio.h>
+//#include <stdio.h>
 
 // void gerarCombinacoes(int arr[], int n, int r, int Possicao, int data[], int i) {
 //     if (Possicao == r) {

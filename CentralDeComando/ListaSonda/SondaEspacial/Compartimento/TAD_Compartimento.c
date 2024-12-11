@@ -61,3 +61,19 @@ void InserirRocha(GerenciadorCompartimento *comp, RochaMineral *Rocha){
         printf("Nao foi enserido\n");
     }
 }
+
+void LimpaCompartimento(GerenciadorCompartimento *comp){
+    comp->UltimoRocha = comp->PrimeiroRocha;
+    comp->PrimeiroRocha->Prox = NULL;
+}
+
+int QuantidadeRochasCompartimento(GerenciadorCompartimento *comp){
+    Compartimento *Aux;
+    int quantidade = 0;
+    Aux = comp->PrimeiroRocha->Prox;
+    while (Aux != NULL){
+        quantidade ++;
+        Aux = Aux->Prox;
+    }
+    return quantidade;
+}
