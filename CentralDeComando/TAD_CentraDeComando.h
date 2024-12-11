@@ -1,6 +1,6 @@
 #ifndef TAD_CENTRAL_DE_COMANDO_H_
 #define TAD_CENTRAL_DE_COMANDO_H_
-#define TAMMAX 100
+#define TAMMAX 1000
 #include "ListaSonda/TAD_ListaSonda.h"
 
 typedef struct {
@@ -10,9 +10,19 @@ typedef struct {
 }ArrayDeRochas;
 
 
+void CriarArrayDeRochas(ArrayDeRochas *ArrayDeRocha);
+
+int VereficaSeArrayVazio(ArrayDeRochas *ListaDeRocha);
+
+int InsereRochaNoArray(ArrayDeRochas *ListaDeRocha,RochaMineral Rocha);
+
+int RetiraRochaNoArray(ArrayDeRochas *ListaDeRocha,int Possicao);
+
+void ImprimeArrayDeRochas(ArrayDeRochas *ListaDeRocha);
+/////////////
 void Inicializador();
 
-void FuncaoE(ListaSondas *ListaDeSonda,RochaMineral ListaDeRochas[],int count);
+void FuncaoE(ListaSondas *ListaDeSondas,ArrayDeRochas ListaDeRocha,int QuantidadeDeRochas);
 
 void gerarTodasCombinacoes(RochaMineral Array[], int TamanhoListaRocha,GerenciadorCompartimento *CompartimentoTemporario);
 
@@ -30,8 +40,6 @@ void RecebeCombinacao(GerenciadorCompartimento *Comp,RochaMineral Array[],int Qu
 
 void ImprimeInformacoes(ListaSondas *comp,RochaMineral Array[],int tamanho);
 
-void RetiraCombinacao(GerenciadorCompartimento *Comp,RochaMineral *Array[],int tamanho);
-
-void RetiraRocha(RochaMineral *Array[],int Possicao,int tamanho,int Peso,int Valor);
+void RetiraCombinacao(GerenciadorCompartimento *Comp,ArrayDeRochas *ListaDeRocha,int tamanho);
 
 #endif
