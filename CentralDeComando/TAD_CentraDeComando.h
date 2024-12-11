@@ -1,24 +1,6 @@
 #ifndef TAD_CENTRAL_DE_COMANDO_H_
 #define TAD_CENTRAL_DE_COMANDO_H_
-#define TAMMAX 1000
 #include "ListaSonda/TAD_ListaSonda.h"
-
-typedef struct {
-    RochaMineral ArrayDeRochas[TAMMAX];
-    int Primeiro;
-    int UltimoLivre;
-}ArrayDeRochas;
-
-
-void CriarArrayDeRochas(ArrayDeRochas *ArrayDeRocha);
-
-int VereficaSeArrayVazio(ArrayDeRochas *ListaDeRocha);
-
-int InsereRochaNoArray(ArrayDeRochas *ListaDeRocha,RochaMineral Rocha);
-
-int RetiraRochaNoArray(ArrayDeRochas *ListaDeRocha,int Possicao);
-
-void ImprimeArrayDeRochas(ArrayDeRochas *ListaDeRocha);
 /////////////
 void Inicializador();
 
