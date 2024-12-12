@@ -34,7 +34,6 @@ void Inicializador(){
         InicializaRochaMineral(&RochaInserida,Peso,Valor);
         InsereRochaNoArray(&VetorDeRochas,RochaInserida);
     }
-    printf("\n");
 
     //Funcao E e depois Imprime os resultados
     clock_t Ticks[2];

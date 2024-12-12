@@ -8,7 +8,7 @@
 
 int main() {
     int escolha;
-    printf("Deseja realizar a entrada de dados por (1-Arquivo 2-Terminal): ");
+    printf("Deseja realizar a entrada de dados por (1 - Arquivo 2 - Terminal): ");
     scanf("%d", &escolha);
     if(escolha == 1){
     char nome[] = {"Arquivo/teste.txt"};

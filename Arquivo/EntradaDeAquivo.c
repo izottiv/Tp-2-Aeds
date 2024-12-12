@@ -23,7 +23,6 @@ void InicializadorArquivo(FILE *file){
         InicializaRochaMineral(&RochaInserida,Peso,Valor);
         InsereRochaNoArray(&VetorDeRochas,RochaInserida);
     }
-    printf("\n");
 
     //Funcao E e depois Imprime os resultados
     FuncaoE(&Espaconaves,VetorDeRochas,VetorDeRochas.UltimoLivre);
