@@ -3,7 +3,7 @@
 #include <math.h>
 #include <time.h>
 #include "CentralDeComando/TAD_CentraDeComando.h"
-#include "EntradaDeArquivo.h"
+#include "Arquivo/EntradaDeArquivo.h"
 
 
 int main() {
@@ -11,7 +11,7 @@ int main() {
     printf("Deseja realizar a entrada de dados por (1-Arquivo 2-Terminal): ");
     scanf("%d", &escolha);
     if(escolha == 1){
-    char nome[] = {"teste.txt"};
+    char nome[] = {"Arquivo/teste.txt"};
     clock_t Ticks[2];
     Ticks[0] = clock();
     arquivo(nome);
