@@ -18,7 +18,6 @@ int main() {
     Ticks[1] = clock();
     double Tempo = (Ticks[1] - Ticks[0]) * 1.0000 / CLOCKS_PER_SEC;
     printf("Tempo gasto: %g segundos", Tempo);
-    printf("\n");
     }
     else{
         Inicializador();

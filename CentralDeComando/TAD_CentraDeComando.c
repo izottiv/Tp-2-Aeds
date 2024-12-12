@@ -154,7 +154,8 @@ void ImprimeInformacoes(ListaSondas *comp,RochaMineral Array[],int tamanho){
                     printf("%d",i);
                     if (i != QuantidadeCombinacao(Array,tamanho)-1){
                         printf(", ");
-                    }      
+                    }
+                    break;      
                 }  
             }
             CompAux = CompAux->Prox;    

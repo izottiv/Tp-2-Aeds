@@ -28,7 +28,6 @@ void InicializadorArquivo(FILE *file){
     //Funcao E e depois Imprime os resultados
     FuncaoE(&Espaconaves,VetorDeRochas,VetorDeRochas.UltimoLivre);
     ImprimeInformacoes(&Espaconaves,VetorDeRochas.ArrayDeRochas,VetorDeRochas.UltimoLivre);
-    printf("\n");
 }
 
 void arquivo(char f[]){
