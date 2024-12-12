@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-
 #include "CentralDeComando/TAD_CentraDeComando.h"
 #include "EntradaDeArquivo.h"
 
