@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 #include "TAD_CentraDeComando.h"
 
@@ -81,8 +82,13 @@ void Inicializador(){
     printf("\n");
 
     //Funcao E e depois Imprime os resultados
+    clock_t Ticks[2];
+    Ticks[0] = clock();
     FuncaoE(&Espaconaves,VetorDeRochas,VetorDeRochas.UltimoLivre);
     ImprimeInformacoes(&Espaconaves,VetorDeRochas.ArrayDeRochas,VetorDeRochas.UltimoLivre);
+    Ticks[1] = clock();
+    double Tempo = (Ticks[1] - Ticks[0]) * 1.0000 / CLOCKS_PER_SEC;
+    printf("Tempo gasto: %g segundos", Tempo);
 }
 
 void FuncaoE(ListaSondas *ListaDeSondas,ArrayDeRochas ListaDeRocha,int UltimaPosicao){

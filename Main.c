@@ -1,44 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 #include "CentralDeComando/TAD_CentraDeComando.h"
+#include "EntradaDeArquivo.h"
 
-
-//#include <stdio.h>
-
-// void gerarCombinacoes(int arr[], int n, int r, int Possicao, int data[], int i) {
-//     if (Possicao == r) {
-//         for (int j = 0; j < r; j++) {
-//             printf("%d ", data[j]);
-//         }
-//         printf("\n");
-//         return;
-//     }
-
-//     if (i >= n) {
-//         return;
-//     }
-
-//     data[Possicao] = arr[i];
-//     gerarCombinacoes(arr, n, r, Possicao + 1, data, i + 1);
-
-//     gerarCombinacoes(arr, n, r, Possicao, data, i + 1);
-// }
-
-// void gerarTodasCombinacoes(int arr[], int n) {
-//     for (int r = 1; r <= n; r++) {
-//         int data[r]; 
-//         gerarCombinacoes(arr, n, r, 0, data, 0);
-//     }
-// }
 
 int main() {
-    // int arr[] = {3, 8, 4, 9};
-    // int n = sizeof(arr) / sizeof(arr[0]);
+    int escolha;
+    printf("Deseja realizar a entrada de dados por (1-Arquivo 2-Terminal): ");
+    scanf("%d", &escolha);
+    if(escolha == 1){
+    char nome[] = {"teste.txt"};
+    clock_t Ticks[2];
+    Ticks[0] = clock();
+    arquivo(nome);
+    Ticks[1] = clock();
+    double Tempo = (Ticks[1] - Ticks[0]) * 1.0000 / CLOCKS_PER_SEC;
+    printf("Tempo gasto: %g segundos", Tempo);
+    printf("\n");
+    }
+    else{
+        Inicializador();
+    }
 
-    // printf("Todas as combinacoes:\n");
-    // gerarTodasCombinacoes(arr, n);
-    Inicializador();
     return 0;
 }
